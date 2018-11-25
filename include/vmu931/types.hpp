@@ -61,4 +61,3 @@ struct Status
 } // namespace vmu931
 
 #endif /* VMU931_TYPES_HPP_8FPGUSNI */
-

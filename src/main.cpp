@@ -36,6 +36,7 @@ int main()
     });
     sensor.register_sink([](vmu931::Heading h) {
         std::cout << "heading: " << h.heading << "\n";
+        std::cout << std::endl;
     });
     sensor.register_sink([](std::string s) {
         std::cout << "message: " << s << "\n";
@@ -52,9 +53,10 @@ int main()
             sensor.set_streams({//vmu931::commands::Accelerometers,
                                 //vmu931::commands::Gyroscopes,
                                 //vmu931::commands::Magnetometers,
-                                  vmu931::commands::EulerAngles,
+                                vmu931::commands::EulerAngles,
                                 //vmu931::commands::Quaternions,
-                                  vmu931::commands::Heading
+                                //vmu931::commands::Heading,
+                                //vmu931::commands::Status
                                 });
     });
 
