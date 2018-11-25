@@ -32,30 +32,26 @@ int main()
 
     sensor.register_sink([](vmu931::Accelerometers accel) {
       now = boost::posix_time::microsec_clock::universal_time();
-          std::cout << "accel: x=" << accel.x << " y=" << accel.y << " z=" << accel.z <<"\n";
-      std::cout <<"Time: " <<now <<" --Dif: " <<now-last1 <<std::endl;
+/*          std::cout <<" " <<accel.x <<" " <<accel.y <<" " <<accel.z;
+      //std::cout <<"Time: " <<now <<" --Dif: " <<now-last1 <<std::endl;
       last1 = now;
-/*
-      if(now-last1 >= boost::posix_time::milliseconds(100)) {
-        std::cout <<now <<std::endl;
-        std::cout <<now-last1 <<std::endl;
-          std::cout << "accel: x=" << accel.x << " y=" << accel.y << " z=" << accel.z <<"\n";
+*/
+      if(now-last1 >= boost::posix_time::milliseconds(1000)) {
+          std::cout <<" " <<accel.x <<" " <<accel.y <<" " <<accel.z;
         last1 = now;
-      }*/
+      }
     });
 
     sensor.register_sink([](vmu931::Gyroscopes gyro) {
       now = boost::posix_time::microsec_clock::universal_time();
-          std::cout << "gyro: x=" << gyro.x << " y=" << gyro.y << " z=" << gyro.z <<"\n";
-      std::cout <<"Time: " <<now <<" --Dif: " <<now-last2 <<std::endl;
+/*          std::cout <<" " <<gyro.x <<" " <<gyro.y <<" " <<gyro.z;
+      //std::cout <<"Time: " <<now <<" --Dif: " <<now-last2 <<std::endl;
       last2 = now;
-/*
-      if(now-last2 >= boost::posix_time::milliseconds(100)) {
-        std::cout <<now <<std::endl;
-        std::cout <<now-last2 <<std::endl;
-          std::cout << "gyro: x=" << gyro.x << " y=" << gyro.y << " z=" << gyro.z <<"\n";
+*/
+      if(now-last2 >= boost::posix_time::milliseconds(1000)) {
+          std::cout <<" " <<gyro.x <<" " <<gyro.y <<" " <<gyro.z;
         last2 = now;
-      }*/
+      }
     });
 
     sensor.register_sink([](vmu931::Magnetometers magneto) {
@@ -64,46 +60,42 @@ int main()
 
     sensor.register_sink([](vmu931::EulerAngles euler) {
       now = boost::posix_time::microsec_clock::universal_time();
-        std::cout << "euler: x=" << euler.x << " y=" << euler.y << " z=" << euler.z <<"\n";
-      std::cout <<"Time: " <<now <<" --Dif: " <<now-last3 <<std::endl;
+/*        std::cout <<" " <<euler.x <<" " <<euler.y <<" " <<euler.z;
+      //std::cout <<"Time: " <<now <<" --Dif: " <<now-last3 <<std::endl;
       last3 = now;
-/*
-      if(now-last3 >= boost::posix_time::milliseconds(100)) {
-        std::cout <<now <<std::endl;
-        std::cout <<now-last3 <<std::endl;
-          std::cout << "euler: x=" << euler.x << " y=" << euler.y << " z=" << euler.z <<"\n";
+*/
+      if(now-last3 >= boost::posix_time::milliseconds(1000)) {
+          std::cout <<" " <<euler.x <<" " <<euler.y <<" " <<euler.z;
         last3 = now;
-      }*/
+      }
     });
 
     sensor.register_sink([](vmu931::Quaternions quat) {
       now = boost::posix_time::microsec_clock::universal_time();
-        std::cout << "quat: w=" << quat.w << " x=" << quat.x << " y=" << quat.y << " z=" << quat.z <<"\n";
-      std::cout <<"Time: " <<now <<" --Dif: " <<now-last4 <<std::endl;
+/*      auto diff = now-last4;
+      std::cout <<now <<" " <<diff.total_microseconds();
+        std::cout <<" " <<quat.w <<" " <<quat.x <<" " <<quat.y <<" " <<quat.z;
       last4 = now;
-/*
-      if(now-last4 >= boost::posix_time::milliseconds(100)) {
-        std::cout <<now <<std::endl;
-        std::cout <<now-last4 <<std::endl;
-          std::cout << "quat: w=" << quat.w << " x=" << quat.x << " y=" << quat.y << " z=" << quat.z <<"\n";
+*/
+      if(now-last4 >= boost::posix_time::milliseconds(1000)) {
+        auto diff = now-last4;
+        std::cout <<now <<" " <<diff.total_microseconds();
+          std::cout <<" " <<quat.w <<" " <<quat.x <<" " <<quat.y <<" " <<quat.z;
         last4 = now;
-      }*/
+      }
     });
 
     sensor.register_sink([](vmu931::Heading h) {
       now = boost::posix_time::microsec_clock::universal_time();
-        std::cout << "heading: " << h.heading << "\n";
-      std::cout <<"Time: " <<now <<" --Dif: " <<now-last5 <<std::endl;
+/*        std::cout <<" " <<h.heading <<std::endl;
+      //std::cout <<"Time: " <<now <<" --Dif: " <<now-last5 <<std::endl;
       last5 = now;
-      std::cout <<std::endl;
-/*
-      if(now-last5 >= boost::posix_time::milliseconds(100)) {
-        std::cout <<now <<std::endl;
-        std::cout <<now-last5 <<std::endl;
-          std::cout << "heading: " << h.heading << "\n";
+      //std::cout <<std::endl;
+*/
+      if(now-last5 >= boost::posix_time::milliseconds(1000)) {
+          std::cout <<" " <<h.heading <<std::endl;
         last5 = now;
-        std::cout <<std::endl;
-      }*/
+      }
     });
 
     sensor.register_sink([](std::string s) {
@@ -130,6 +122,8 @@ int main()
     });
 
     std::cout << "Start reading VMU931 sensor stream...\n";
+    std::cout <<"Date Time " <<"Diftime[microsec] " <<"/quatW " <<"quatX " <<"quatY " <<"quatZ " <<"/accelX " <<"accelY " <<"accelZ "
+      <<"/gyroX " <<"gyroY " <<"gyroZ " <<"/eulerX "  <<"eulerY " <<"eulerZ " <<"/heading" <<std::endl;
     io_service.run();
 
   return 0;
