@@ -12,7 +12,7 @@
 //#define PI 3.1415926535
 //#define G 9.79991 //g at fuenlabrada
 #define PI std::acos(-1)
-#define G 9.81 //g at sea level
+#define G 9.81f //g at sea level
 
   boost::posix_time::ptime now = boost::date_time::not_a_date_time;
   boost::posix_time::ptime last = boost::date_time::not_a_date_time;
@@ -25,7 +25,7 @@ int main()
 
     last = boost::posix_time::microsec_clock::universal_time();
     boost::asio::io_service io_service;
-    boost::asio::serial_port serial_port(io_service, "/dev/ttyACM0");
+    boost::asio::serial_port serial_port(io_service, "/dev/ttyACM1");
     //boost::asio::serial_port serial_port(io_service, "/dev/tty.usbmodem931901443E");
 
     vmu931::Sensor sensor(std::move(serial_port));
