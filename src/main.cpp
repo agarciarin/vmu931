@@ -58,16 +58,11 @@ int main()
         myfile <<" " <<quat.w <<" " <<quat.x <<" " <<quat.y <<" " <<quat.z;
         std::cout <<" quatW=" <<quat.w <<" " <<quat.x <<" " <<quat.y <<" " <<quat.z;
     });
-<<<<<<< HEAD
-    sensor.register_sink([](vmu931::Heading h) {
-        std::cout << "heading: " << h.heading << "\n";
-        std::cout << std::endl;
 =======
 
     sensor.register_sink([&myfile](vmu931::Heading h) {
         myfile <<" " <<h.heading <<std::endl;
         std::cout <<" head=" <<h.heading <<std::endl;
->>>>>>> alpha
     });
 
     sensor.register_sink([](std::string s) {
@@ -82,15 +77,6 @@ int main()
     });
 
     io_service.post([&sensor]() {
-<<<<<<< HEAD
-            sensor.set_streams({//vmu931::commands::Accelerometers,
-                                //vmu931::commands::Gyroscopes,
-                                //vmu931::commands::Magnetometers,
-                                vmu931::commands::EulerAngles,
-                                //vmu931::commands::Quaternions,
-                                //vmu931::commands::Heading,
-                                //vmu931::commands::Status
-                                });
 =======
       sensor.set_streams({
         vmu931::commands::Accelerometers,
@@ -101,7 +87,6 @@ int main()
         vmu931::commands::Heading,
         //vmu931::commands::Status
       });
->>>>>>> alpha
     });
 
     std::cout << "Start reading VMU931 sensor stream...\n";
