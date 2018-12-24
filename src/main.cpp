@@ -58,7 +58,6 @@ int main()
         myfile <<" " <<quat.w <<" " <<quat.x <<" " <<quat.y <<" " <<quat.z;
         std::cout <<" quatW=" <<quat.w <<" " <<quat.x <<" " <<quat.y <<" " <<quat.z;
     });
-=======
 
     sensor.register_sink([&myfile](vmu931::Heading h) {
         myfile <<" " <<h.heading <<std::endl;
@@ -77,7 +76,6 @@ int main()
     });
 
     io_service.post([&sensor]() {
-=======
       sensor.set_streams({
         vmu931::commands::Accelerometers,
         vmu931::commands::Gyroscopes,
