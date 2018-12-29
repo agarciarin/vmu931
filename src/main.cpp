@@ -88,6 +88,7 @@ int main()
     });
 
     std::cout << "Start reading VMU931 sensor stream...SUUUUUUUUUUU\n'";
+    std::cout << "Start reading VMU931 sensor stream...SUUUUUUUUUUU\n'";
     myfile <<"UNITS: Diftime[sec] /*/ accel[m/s²] /*/ gyro[rad/s] /*/ euler[degrees] /*/ heading[degrees]" <<std::endl;
     std::cout <<"UNITS: Diftime[sec] /*/ accel[m/s²] /*/ gyro[rad/s] /*/ euler[degrees] /*/ heading[degrees]" <<std::endl;
     myfile <<"g= "<<G <<" | pi= " <<PI <<std::endl;
