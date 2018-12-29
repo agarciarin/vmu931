@@ -1,5 +1,5 @@
 /*
-  modificacion alpha, ~200hz, escritura en: cout and file
+  ~200hz, escritura en: cout and file
 */
 #include <iostream>
 #include <boost/asio.hpp>
@@ -87,7 +87,7 @@ int main()
       });
     });
 
-    std::cout << "Start reading VMU931 sensor stream...\n";
+    std::cout << "Start reading VMU931 sensor stream..." <<std::endl;
     myfile <<"UNITS: Diftime[sec] /*/ accel[m/s²] /*/ gyro[rad/s] /*/ euler[degrees] /*/ heading[degrees]" <<std::endl;
     std::cout <<"UNITS: Diftime[sec] /*/ accel[m/s²] /*/ gyro[rad/s] /*/ euler[degrees] /*/ heading[degrees]" <<std::endl;
     myfile <<"g= "<<G <<" | pi= " <<PI <<std::endl;
